@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+
+#define ll long long
+#define str std::string
+#define vll std::vector<ll>
+#define vi std::vector<int>
+#define vc std::vector<char>
+#define vs std::vector<std::string>
+#define vb std::vector<bool>
+#define vec std::vector
+#define ALL(v) v.begin(), v.end()
+#define FILL(v, n) std::fill(ALL(v), n)
+#define FOR(a,b,c) for(int(a) = (b); (a) < (c); ++(a))
+#define FORN(a,b,c) for(int(a) = (b); (a) <= (c); ++(a))
+#define FORD(a,b,c) for(int(a) = (b); (a) >= (c); --(a))
+#define FORSQ(a,b,k) for(int(a) = (b); (k) >= (a)*(a); ++(a))
+#define gline(s) std::getline(std::cin, string); 
+#IF1(n) if(n%2 == 1)
+#IF0(n) if(n%2 == 0)
+#EACH(v) for(auto& a : v)
+// s → set , i → T
+#INS(s, i) s.insert(i)
+// s → set , i → T
+#ERS(s, i) s.erase(i)
+#define pb(v, i) v.push_back(i)
+#define sz(v) (ll)v.size()
+#define mod (ll)1e9+7
+// менять типы данных по необходимости
+#define MP std::map<ll,ll>
+#define f first;
+#define s second;
+#define max (int)INT32_MAX
+#define min (int)INT32_MIN
+#define rsz(v,n) v.resize(n) 
+#define mp std::make_pair
+#define SORT(v) std::sort(ALL(v))
+#define REVERSE(v) std::reverse(ALL(v))
+#define MAX(a,b) a = std::max(a,b)
+#define MIN(a,b) a = std::min(a,b)
+#define PERMUTE std::next_permutation
+#define FASTIO   std::ios::sync_with_stdio(false); \
+  std::cin.tie(0); std::cout.tie(0);
+// exponentiation
+ll exp(ll x, ll n, ll m) {
+  x %= m;
+  ll res = 1;
+  while (n > 0) {
+    if (n % 2 == 1) {
+      res = res * x % m;
+    }
+    x = x * x % m;
+    n /= 2;
+  }
+  return res;
+}
+// little-Ferma theorem
+// a^{mod-1} = 1%[mod] (using it in inversion for mod in multiplication)
+long long int inverse(long long int i, long long int mod){
+  if(i==1) return 1;
+  return (mod - ((mod/i)*inverse(mod%i,mod))%mod+mod)%mod;
+}
